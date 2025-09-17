@@ -37,8 +37,6 @@ rec {
     writeShellScriptBin "run-Affinity-${name}-2" ''
       if [ ! -f "${affinityPath}/drive_c/Program Files/Affinity/${name} 2/${name}.exe" ]; then
         ${lib.getExe installer} || exit 1
-      else
-        ${lib.getExe check} || exit 1
       fi
 
       ${lib.getExe wine} "${affinityPath}/drive_c/Program Files/Affinity/${name} 2/${name}.exe"
